@@ -1,8 +1,11 @@
 from django.db import IntegrityError
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from .forms import TodoForm
+from .models import Todolist
+from django.utils import timezone
 
 
 def home(request):
@@ -43,5 +46,41 @@ def logoutuser(request):
         return redirect('home')
 
 
+def createtodo(request):
+    if request.method == 'GET':
+        return render(request, 'todo/createtodo.html', {'form': TodoForm()})
+    else:
+        try:
+            form = TodoForm(request.POST)
+            new_to_do = form.save(commit=False)
+            new_to_do.user = request.user
+            new_to_do.save()
+            return redirect('currenttodos')
+        except ValueError:
+            return render(request, 'todo/createtodo.html', {'form': TodoForm(), 'error': 'Были переданы неверные данные. Попробуйте снова.'})
+
+
 def currenttodos(request):
-    return render(request, 'todo/currenttodos.html', {'form': UserCreationForm()})
+    todos = Todolist.objects.filter(user=request.user, date_completed__isnull=True)
+    return render(request, 'todo/currenttodos.html', {'todos': todos})
+
+def viewtodo(request, todo_pk):
+    todo = get_object_or_404(Todolist, pk=todo_pk, user=request.user)
+    if request.method == 'GET':
+        form = TodoForm(instance=todo)
+        return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form})
+    else:
+        try:
+            form = TodoForm(request.POST, instance=todo)
+            form.save()
+            return redirect('currenttodos')
+        except ValueError:
+            return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form, 'error': 'Неправильно введеные данные'})
+
+def completetodo(request, todo_pk):
+    todo = get_object_or_404(Todolist, pk=todo_pk, user=request.user)
+    if request.method == 'POST':
+        todo.date_completed = timezone.now()
+        todo.save()
+        return redirect('currenttodos')
+
