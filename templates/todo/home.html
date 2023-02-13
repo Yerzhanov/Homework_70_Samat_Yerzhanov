@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+
+                 <h1>Добро пожаловать. Планируйте свои дела прямо сейчас.</h1>
+            <p>У человека всегда много дел и не все можно запомнить. Бывает одни дела выбивают из головы лругие.
+                Важно не забыть,<u>что попросила купить домой жена</u>, или не пропустить важную встречу.
+                Приложение<b><i>To-do-list</i></b> из домашнего задания №52 поможет вам в этом.</p>
+        <a role="button" class="btn btn-primary btn-lg" href="{% url 'signupuser' %}">Start</a>
+        </div>
+    </div>
+
+{% endblock %}
