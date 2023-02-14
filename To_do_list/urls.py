@@ -34,3 +34,5 @@ urlpatterns = [
     path('todo/<int:todo_pk>/delete', views.deletetodo, name='deletetodo'),
 
 ]
+
+
