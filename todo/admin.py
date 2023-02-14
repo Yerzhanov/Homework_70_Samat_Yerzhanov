@@ -9,3 +9,4 @@ class TodolistAdmin(admin.ModelAdmin):
 admin.site.register(Todolist, TodolistAdmin)
 
 
+

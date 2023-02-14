@@ -98,3 +98,4 @@ def deletetodo(request, todo_pk):
         todo.delete()
         return redirect('currenttodos')
 
+
