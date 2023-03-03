@@ -4,4 +4,4 @@
 __pycahe__
 /.idea
 /.sqlite3
-.sqlite3
+.*sqlite3
