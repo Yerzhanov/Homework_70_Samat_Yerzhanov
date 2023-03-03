@@ -14,24 +14,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from todo import views
+from django.urls import path, include
+from todo.views import *
+from issue_tracker.views import CommentListView, CommentDetailView, CommentCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('list/', CommentListView.as_view(), name='list'),
+    path('tickets/<int:tickets_pk>/', CommentDetailView.as_view(), name='detail_view'),
+    path('add/', CommentCreateView.as_view(), name='add'),
 
-    path('signup/', views.signupuser, name='signupuser'),
-    path('login/', views.loginuser, name='loginuser'),
-    path('logout/', views.logoutuser, name='logoutuser'),
+    path('signup/', signupuser, name='signupuser'),
+    path('login/', loginuser, name='loginuser'),
+    path('logout/', logoutuser, name='logoutuser'),
 
-    path('', views.home, name='home'),
-    path('current/', views.currenttodos, name='currenttodos'),
-    path('create/', views.createtodo, name='createtodo'),
-    path('completed/', views.completedtodos, name='completedtodos'),
+    path('', HomeView.as_view(), name='home'),
+    path('current/', CurrentView.as_view(), name='currenttodos'),
+    path('create/', createtodo, name='createtodo'),
+    path('createcomment/', createcomment, name='createcomment'),
+    path('completed/', completedtodos, name='completedtodos'),
 
-    path('todo/<int:todo_pk>', views.viewtodo, name='viewtodo'),
-    path('todo/<int:todo_pk>/complete', views.completetodo, name='completetodo'),
-    path('todo/<int:todo_pk>/delete', views.deletetodo, name='deletetodo'),
+    path('todo/<int:todo_pk>', viewtodo, name='viewtodo'),
+    path('view_comments/', viewcomment, name='viewcomment'),
+    path('todo/<int:todo_pk>/complete', completetodo, name='completetodo'),
+    path('todo/<int:todo_pk>/delete', deletetodo, name='deletetodo'),
 
 ]
 
