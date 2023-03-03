@@ -1,0 +1,25 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<div>
+    <h1>Тикеты</h1>
+ <a href="{% url 'add' %}">Add ticket</a>
+        <body>
+        {% for ticket in object_list %}
+        <ul>
+            <li>{{ ticket.title }}</li>
+            <li>{{ ticket.created|date }}</li>
+            <li>{{ ticket.user }}</li>
+            <li>{{ ticket.status }}</li>
+            <li>{{ ticket.task_type }}</li>
+            <li>{{ ticket.closed|yesno:"CLOSED, OPENED" }}</li>
+          <ul><a href="#">{{ ticket.title }}</a></ul>
+        </ul>
+        {% empty %}
+        <ul>
+            <ul colspan=4>У вас нет тикетов</ul>
+        </ul>
+        {% endfor %}
+        </body>
+</div>
+{% endblock %}
