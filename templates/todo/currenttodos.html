@@ -14,7 +14,7 @@
         <div class="col-md-10">
         {% if todos %}
             <div class="list-group">
-                {% for todo in todos %}
+                {% for todo in object_list %}
                     <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}">
                         <b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo }} <br> Начато - {{ todo.date_created }}{% endif %}</a>
 

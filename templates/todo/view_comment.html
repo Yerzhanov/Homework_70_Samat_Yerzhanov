@@ -17,7 +17,7 @@
                 {% for comment in comments  %}
                         <b>Комментарий к делу - {{ comment.article }}</b> Текст - {{ comment.text }}
                            Автор - {{ comment.author }} Статус - {{ comment.status }} <br>
-                           Тип задачи  - {{ comment.task_type }} | Дата создания - {{ comment.created_at }}
+                           Тип задачи  - {{ comment.task_type }} | Дата создания - {{ comment.created_at }} | Тэги - {{ comment.tags.name }}
                            <hr>
                 {% endfor %}
             </div>
