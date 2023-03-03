@@ -15,7 +15,9 @@
         {% if todos %}
             <div class="list-group">
                 {% for todo in todos %}
-                    <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}"><b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo|truncatechars:30 }} Начато - {{ todo.date_created }}{% endif %}</a>
+                    <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}">
+                        <b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo }} <br> Начато - {{ todo.date_created }}{% endif %}</a>
+
                 {% endfor %}
             </div>
         {% else %}
@@ -25,6 +27,7 @@
             <a role="button" class="btn btn-primary" href="{% url 'createtodo' %}">Новое дело</a>
             </div>
         {% endif %}
+         <a href="{% url 'viewcomment' %}">Посмотреть комментарии к делам</a>
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,33 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if comments %}
+                 <h1> Общее количество комментариев - {{ comments.count }}</h1>
+            {% else %}
+                           <h1>Текущие комментарии</h1>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+        {% if comments %}
+            <div class="list-group">
+                {% for comment in comments  %}
+                        <b>Комментарий к делу - {{ comment.article }}</b> Текст - {{ comment.text }}
+                           Автор - {{ comment.author }} Статус - {{ comment.status }} <br>
+                           Тип задачи  - {{ comment.task_type }} | Дата создания - {{ comment.created_at }}
+                           <hr>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>У вас не пока комментариев</h2>
+            <br>
+            <a role="button" class="btn btn-primary" href="{% url 'createcomment' %}">Новый комментарий</a>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
