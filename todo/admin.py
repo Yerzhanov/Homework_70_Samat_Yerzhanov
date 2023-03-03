@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Todolist
+from .models import Todolist, Comment
 
 
 class TodolistAdmin(admin.ModelAdmin):
@@ -7,6 +7,6 @@ class TodolistAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Todolist, TodolistAdmin)
-
+admin.site.register(Comment)
 
 
