@@ -4,7 +4,7 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-10">
             {% if todos %}
-                 <h1> Количество текущих дел - {{ todos.count }}</h1>
+                 <h1> Количество дел - {{ todos.count }}</h1>
             {% else %}
                            <h1>Текущие дела</h1>
             {% endif %}
@@ -16,7 +16,7 @@
             <div class="list-group">
                 {% for todo in object_list %}
                     <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}">
-                        <b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo }} <br> Начато - {{ todo.date_created }}{% endif %}</a>
+                        <b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo }} <br> Начато - {{ todo.date_created }} Статус - {{ todo.status }}{% endif %}</a>
 
                 {% endfor %}
             </div>
