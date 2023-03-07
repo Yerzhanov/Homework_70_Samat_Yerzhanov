@@ -1,6 +1,6 @@
 venv
 /venv
 .idea
-__pycahe__
+__pycache__
 .sqlite3
 .*sqlite3
