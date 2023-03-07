@@ -32,7 +32,7 @@ urlpatterns = [
     path('current/', CurrentView.as_view(), name='currenttodos'),
     path('create/', createtodo, name='createtodo'),
     path('createcomment/', createcomment, name='createcomment'),
-    path('completed/', completedtodos, name='completedtodos'),
+    path('completed/', CompleteTodosView.as_view(), name='completedtodos'),
 
     path('todo/<int:todo_pk>', viewtodo, name='viewtodo'),
     path('view_comments/', viewcomment, name='viewcomment'),

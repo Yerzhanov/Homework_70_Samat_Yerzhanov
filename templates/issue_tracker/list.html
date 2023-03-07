@@ -8,9 +8,10 @@
         {% for ticket in object_list %}
         <ul>
             <li>{{ ticket.title }}</li>
-            <li>{{ ticket.created|date }}</li>
-            <li>{{ ticket.user }}</li>
-            <li>{{ ticket.status }}</li>
+            <li>Дата создания - {{ ticket.created|date }}</li>
+            <li>Текст - {{ ticket.text}}</li>
+            <li>Автор - {{ ticket.user }}</li>
+            <li>Статус - {{ ticket.status }}</li>
             <li>{{ ticket.task_type }}</li>
             <li>{{ ticket.closed|yesno:"CLOSED, OPENED" }}</li>
           <ul><a href="#">{{ ticket.title }}</a></ul>

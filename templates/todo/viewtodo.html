@@ -4,6 +4,7 @@
 
 
 
+
 {% extends "todo/base.html" %}
 
 {% block content %}
@@ -19,7 +20,7 @@
                     {{ error }}
                 </div>
             {% endif %}
-            <form method="POST">
+            <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="title">Title</label>

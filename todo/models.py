@@ -2,14 +2,18 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import TextChoices
 
+class TodoStatusChoice(TextChoices):
+    ACTIVE = 'ACTIV', 'Активный'
+    NOT_ACTIVE = 'NOT_ACTIVE', 'Не активный'
 
 class Todolist(models.Model):
-    title = models.CharField(max_length=100)
-    memo = models.TextField(blank=True)
+    title = models.CharField(max_length=100, verbose_name='Заголовок')
+    memo = models.TextField(blank=True,verbose_name='Текст дела')
     date_created = models.DateTimeField(auto_now_add=True)
     date_completed = models.DateTimeField(null=True, blank=True)
-    important = models.BooleanField(default=False)
+    important = models.BooleanField(default=False, verbose_name='Важность дела для вас')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, verbose_name='Статус', choices=TodoStatusChoice.choices, default=TodoStatusChoice.ACTIVE)
 
     def __str__(self):
         return self.title
