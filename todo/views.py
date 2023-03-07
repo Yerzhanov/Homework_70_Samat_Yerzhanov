@@ -92,24 +92,17 @@ class CurrentView(ListView):
        context['todos'] = Todolist.objects.all()
        return context
 
-@login_required()
-def completedtodos(request):
-    todos = Todolist.objects.filter(user=request.user, date_completed__isnull=False).order_by('-date_completed')
-    return render(request, 'todo/completedtodos.html', {'todos': todos})
 
-@login_required()
-def viewtodo(request, todo_pk):
-    todo = get_object_or_404(Todolist, pk=todo_pk, user=request.user)
-    if request.method == 'GET':
-        form = TodoForm(instance=todo)
-        return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form})
-    else:
-        try:
-            form = TodoForm(request.POST, instance=todo)
-            form.save()
-            return redirect('currenttodos')
-        except ValueError:
-            return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form, 'error': 'Неправильно введеные данные'})
+class CompleteTodosView(ListView):
+    model = Todolist
+    template_name = 'todo/completedtodos.html'
+    extra_context = {'title': 'Список выполненных дел'}
+
+    def get_context_data(self, **kwargs):
+       context = super(CompleteTodosView, self).get_context_data()
+       context['todos'] = Todolist.objects.filter(date_completed__isnull=False)
+       return context
+
 
 @login_required()
 def completetodo(request, todo_pk):
@@ -125,3 +118,17 @@ def deletetodo(request, todo_pk):
     if request.method == 'POST':
         todo.delete()
         return redirect('currenttodos')
+
+@login_required()
+def viewtodo(request, todo_pk):
+    todo = get_object_or_404(Todolist, pk=todo_pk, user=request.user)
+    if request.method == 'GET':
+        form = TodoForm(instance=todo)
+        return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form})
+    else:
+        try:
+            form = TodoForm(request.POST, instance=todo)
+            form.save()
+            return redirect('currenttodos')
+        except ValueError:
+            return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form, 'error': 'Неправильно введеные данные'})
