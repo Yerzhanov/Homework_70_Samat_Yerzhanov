@@ -1,6 +1,7 @@
 .idea
+.idea/.gitignore
 venv
 /venv
 __pycache__
 .sqlite3
-.*sqlite3
+*.sqlite3
