@@ -1,6 +1,22 @@
+from django.utils.timezone import now
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import TextChoices
+from django.forms import DateInput
+
+from todo.managers import TodoManager
+
+
+class Projectlist(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Название')
+    description = models.TextField(blank=True, verbose_name='Описание проекта')
+    date_created = models.DateTimeField(default=now, editable=True, blank=True, verbose_name="Дата создания проекта")
+    date_completed = models.DateTimeField(default=now, editable=True, blank=True, verbose_name="Дата выполнения")
+
+    def __str__(self):
+        return self.name
+
 
 class TodoStatusChoice(TextChoices):
     ACTIVE = 'ACTIV', 'Активный'
@@ -8,16 +24,19 @@ class TodoStatusChoice(TextChoices):
 
 class Todolist(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок')
-    memo = models.TextField(blank=True,verbose_name='Текст дела')
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_completed = models.DateTimeField(null=True, blank=True)
+    memo = models.TextField(blank=True, verbose_name='Текст дела')
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания напоминания")
+    date_completed = models.DateTimeField(null=True, blank=True, verbose_name="Дата выполнения")
     important = models.BooleanField(default=False, verbose_name='Важность дела для вас')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_deleted = models.DateTimeField(null=True, blank=True, verbose_name="Дата удаления")
     status = models.CharField(max_length=20, verbose_name='Статус', choices=TodoStatusChoice.choices, default=TodoStatusChoice.ACTIVE)
+    project = models.ForeignKey(to=Projectlist, null=True, on_delete=models.CASCADE, verbose_name='Проект')
 
     def __str__(self):
         return self.title
 
+    objects = TodoManager()
 
 class StatusChoice(TextChoices):
     NEW = 'NEW', 'Новый'

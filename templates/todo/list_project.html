@@ -1,0 +1,40 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if projects %}
+                 <h1> Проекты </h1>
+            {% else %}
+                           <h1>Текущие дела</h1>
+
+            {% endif %}
+        </div>
+    </div>
+
+    {% include 'partial/simple_search.html' %}
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+        {% if projects %}
+            <div class="list-group">
+                {% for project in object_list %}
+                    <a href="{% url 'view_project' project.id %}" class="list-group-item list-group-item-secondary">
+                        <b>{{ project.name }}</b> <br>{{ project.description }}</a>
+                </a>
+                {% endfor %}
+            <a role="button" class="btn btn-primary" href="{% url 'create_project' %}">Новый проект</a>
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>Проекты не найдены. Хотите создать новый проект?</h2>
+            <br>
+            <a role="button" class="btn btn-primary" href="{% url 'create_project' %}">Новый проект</a>
+            </div>
+        {% endif %}
+        </div>
+    {% if is_paginated %}
+   {% include 'partial/pagination.html' %}
+    {% endif %}
+    </div>
+{% endblock %}
