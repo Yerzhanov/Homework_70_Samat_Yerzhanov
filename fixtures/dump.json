@@ -1,0 +1,458 @@
+[
+{
+  "model": "todo.projectlist",
+  "pk": 1,
+  "fields": {
+    "name": "Проект личной и общественной жизни",
+    "description": "Задачи для проекта подходят большинству людей, потому что все хотят быть счастливыми, довольными и радостными в своей жизни. На самом деле сделать это не так сложно, но всегда нет времени и находятся отговорки.",
+    "date_created": "2023-03-10T09:53:32Z",
+    "date_completed": "2023-03-10T09:53:32Z"
+  }
+},
+{
+  "model": "todo.projectlist",
+  "pk": 2,
+  "fields": {
+    "name": "Рабочее пространство",
+    "description": "Задачи для работы, домашку, контрольные и всевозможные варианты связанные с программированием, дополнительным обучением.",
+    "date_created": "2023-03-10T15:17:36Z",
+    "date_completed": "2023-03-10T11:17:36Z"
+  }
+},
+{
+  "model": "todo.projectlist",
+  "pk": 3,
+  "fields": {
+    "name": "роььрькень",
+    "description": "",
+    "date_created": "2023-03-10T11:31:02Z",
+    "date_completed": "2023-03-10T11:31:02Z"
+  }
+},
+{
+  "model": "todo.projectlist",
+  "pk": 4,
+  "fields": {
+    "name": "5р5о",
+    "description": "ркькнгь",
+    "date_created": "2023-03-10T11:31:16Z",
+    "date_completed": "2023-03-10T11:31:16Z"
+  }
+},
+{
+  "model": "todo.projectlist",
+  "pk": 5,
+  "fields": {
+    "name": "авикыиук",
+    "description": "ицкикуиц",
+    "date_created": "2023-03-10T11:32:06Z",
+    "date_completed": "2023-03-10T11:32:06Z"
+  }
+},
+{
+  "model": "todo.projectlist",
+  "pk": 6,
+  "fields": {
+    "name": "круцрук",
+    "description": "кцицукцкикци",
+    "date_created": "2023-03-10T11:32:34Z",
+    "date_completed": "2023-03-10T11:32:34Z"
+  }
+},
+{
+  "model": "todo.projectlist",
+  "pk": 7,
+  "fields": {
+    "name": "круцрук",
+    "description": "кцицукцкикци",
+    "date_created": "2023-03-10T11:32:34Z",
+    "date_completed": "2023-03-10T11:32:34Z"
+  }
+},
+{
+  "model": "todo.projectlist",
+  "pk": 8,
+  "fields": {
+    "name": "Проект для пробы",
+    "description": "Знаю, что где-то ошибка по передаче ключа, но найти ее не могу никак",
+    "date_created": "2023-03-10T11:43:39Z",
+    "date_completed": "2023-03-10T11:43:39Z"
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 11,
+  "fields": {
+    "title": "Создайте антисписок дел",
+    "memo": "Возьмите в привычку составлять не только to do list, но и анти to do list. Для этого на противоположной стороне списка записывайте все полезные дела, которые успели сделать за день. К примеру, если вы сделали всего 5 дел из 10 запланированных — это не повод расстраиваться, ведь дополнительно выполнено еще 5 задач не из списка!\r\nвот так.",
+    "date_created": "2023-03-07T08:55:11.526Z",
+    "date_completed": "2023-03-09T11:08:01.642Z",
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "NOT_ACTIVE",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 12,
+  "fields": {
+    "title": "Сгруппируйте дела",
+    "memo": "Разделите список дел на 3 столбца: что обязательно нужно сделать (срочное), что желательно (долгосрочное) и что хотелось бы. Такой метод помогает соблюдать баланс между кратко- и долгосрочными целями, а также не забывать о том, что приносит радость.",
+    "date_created": "2023-03-07T09:33:12.378Z",
+    "date_completed": null,
+    "important": true,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 13,
+  "fields": {
+    "title": "Не храните старые списки дел",
+    "memo": "Каждый вечер выбрасывайте старый список, не переносите груз невыполненных задач в новый день. Создавайте каждый день новый перечень. Это положительно повлияет на сон.vв ва",
+    "date_created": "2023-03-07T09:33:43.654Z",
+    "date_completed": "2023-03-09T10:39:24.109Z",
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": null
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 15,
+  "fields": {
+    "title": "Откажитесь от лишних совещаний",
+    "memo": "Совет руководителям — экономьте время на совещаниях. Не все, но многие вопросы можно решить посредством рассылки. Это займет меньше времени, чем сборы и устные пояснения.",
+    "date_created": "2023-03-07T09:34:36.525Z",
+    "date_completed": "2023-03-07T10:21:38.441Z",
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 16,
+  "fields": {
+    "title": "Воссоздайте хронологию",
+    "memo": "Создавайте не списки дел, а распорядок дня. Представьте день в виде истории, спланируйте его хронологически. Если вписать в график все действия, можно заметить, что некоторые из них удачно объединяются, например поход за продуктами и дорога с работы. Будьте готовы, что в реальности распорядок редко соблюдается с математической точностью: никто не отменял пробки и затянувшиеся совещания.",
+    "date_created": "2023-03-07T09:56:48.897Z",
+    "date_completed": "2023-03-09T10:40:01.859Z",
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "NOT_ACTIVE",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 19,
+  "fields": {
+    "title": "Съешьте на завтрак лягушку",
+    "memo": "Первым делом принимайтесь за самые сложные и неприятные задачи — «съешьте лягушку на завтрак». Это может быть, к примеру, отчет в налоговую или запись к стоматологу — методика работает как в личной, так и в профессиональной сфере. Более детально об этом и многих других методах тайм-менеджмента можно прочесть в книге Брайана Трейси «Съешьте лягушку! 21 способ научиться успевать».",
+    "date_created": "2023-03-07T10:19:18.293Z",
+    "date_completed": "2023-03-09T10:42:52.675Z",
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 21,
+  "fields": {
+    "title": "Разделите задачу на составляющие)))",
+    "memo": "Если на какое-то большое задание изо дня в день не хватает времени, сил или желания, разделите его на составляющие. Главное — начать. Иначе есть риск создать большое кладбище задач.",
+    "date_created": "2023-03-07T10:23:04.948Z",
+    "date_completed": null,
+    "important": true,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 22,
+  "fields": {
+    "title": "Правило «1—3—5»",
+    "memo": "Попробуйте принцип «1—3—5»: каждый день планируйте 1 дело, требующее больших усилий, 3 средних и 5 небольших. При желании формулу можно видоизменить, например «2—2—5».",
+    "date_created": "2023-03-07T10:23:27.452Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 23,
+  "fields": {
+    "title": "Чередуйте дела",
+    "memo": "Не ставьте подряд 2 и более однотипные задачи. Вероятнее всего, вторую вы не выполните. Чередуйте дела интеллектуальные, монотонные домашние и требующие физической нагрузки.",
+    "date_created": "2023-03-07T10:23:51.792Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "NOT_ACTIVE",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 25,
+  "fields": {
+    "title": "Не забывайте о поощрении",
+    "memo": "Вознаграждайте себя ежедневно за выполненные задачи. Это может быть чашка чая с любимой книгой или внеочередная покупка. Хвалите себя в конце каждого дня, если сделали то, что запланировали.\r\n\r\nА какие секреты помогают организовывать день максимально эффективно именно вам?",
+    "date_created": "2023-03-07T10:27:11.161Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "NOT_ACTIVE",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 27,
+  "fields": {
+    "title": "Найти свое дело жизни",
+    "memo": "Найти свое дело жизни;",
+    "date_created": "2023-03-09T11:57:19.648Z",
+    "date_completed": null,
+    "important": true,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 28,
+  "fields": {
+    "title": "Стать признанным экспертом в своем деле",
+    "memo": "Стать признанным экспертом в своем деле",
+    "date_created": "2023-03-09T11:57:35.408Z",
+    "date_completed": null,
+    "important": true,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 29,
+  "fields": {
+    "title": "Бросить пить и курить",
+    "memo": "Не курил и не стоит начинать, а вот алкоголь периодически вторгается в жизнь на выходных(как в песне Меладзе)",
+    "date_created": "2023-03-09T11:58:28.275Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 30,
+  "fields": {
+    "title": "Завести множество друзей и знакомых по всему миру",
+    "memo": "Друзей не может быть много, но можно отфильтровать список своих так называемых \"друзей\" и подходить к этому более сознательно.",
+    "date_created": "2023-03-09T11:59:48.964Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 31,
+  "fields": {
+    "title": "Научиться свободно говорить на 3 языках, кроме родного",
+    "memo": "На родном бы языке научиться внятно изъясняться",
+    "date_created": "2023-03-09T12:00:19.881Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "NOT_ACTIVE",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 32,
+  "fields": {
+    "title": "Стать вегетарианцем",
+    "memo": "Казахи и мясо - вместе навсегда и вряд ли это можно осуществить, но стараться питаться правильной пищей, это можно.",
+    "date_created": "2023-03-09T12:01:09.540Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "NOT_ACTIVE",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 33,
+  "fields": {
+    "title": "Найти 1000 последователей своего дела/блога",
+    "memo": "Конечно, нет Наполеоновских планов, но почему бы и нет, создать свое маленькое сообщество (в котором ты будешь Инфлюенсером)",
+    "date_created": "2023-03-09T12:08:47.412Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 34,
+  "fields": {
+    "title": "Просыпаться каждый день в 5 утра",
+    "memo": "Не настолько конечно я люблю рано вставать, я поэтому даже на рыбалку не могу сходить",
+    "date_created": "2023-03-09T12:45:53.878Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "NOT_ACTIVE",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 35,
+  "fields": {
+    "title": "Читать по книге в неделю",
+    "memo": "Желательно не только научную литературу, но и художественную, чтобы голова отдыхала.",
+    "date_created": "2023-03-09T12:51:57.647Z",
+    "date_completed": null,
+    "important": false,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.todolist",
+  "pk": 36,
+  "fields": {
+    "title": "Объездить весь мир",
+    "memo": "Путешествия - нужно постоянно менять что-либо в своей жизни, иначе она начинает идти крайне быстро и пролетает как мгновение. А жизнь у нас одна.",
+    "date_created": "2023-03-09T13:39:51.115Z",
+    "date_completed": null,
+    "important": true,
+    "user": 2,
+    "date_deleted": null,
+    "status": "ACTIV",
+    "project": 1
+  }
+},
+{
+  "model": "todo.tag",
+  "pk": 1,
+  "fields": {
+    "name": "New",
+    "created_at": "2023-03-03T11:38:00.446Z"
+  }
+},
+{
+  "model": "todo.tag",
+  "pk": 2,
+  "fields": {
+    "name": "old",
+    "created_at": "2023-03-03T11:38:00.446Z"
+  }
+},
+{
+  "model": "todo.tag",
+  "pk": 3,
+  "fields": {
+    "name": "Fresh",
+    "created_at": "2023-03-03T11:38:00.446Z"
+  }
+},
+{
+  "model": "todo.comment",
+  "pk": 8,
+  "fields": {
+    "status": "IN_PROGRESS",
+    "task_type": "Enhancement",
+    "article": 13,
+    "text": "Мистер Плюшкин должен умереть внутри вас",
+    "author": "Начальник",
+    "created_at": "2023-03-07T09:35:19.053Z",
+    "updated_at": "2023-03-07T09:35:19.053Z"
+  }
+},
+{
+  "model": "todo.comment",
+  "pk": 10,
+  "fields": {
+    "status": "IN_PROGRESS",
+    "task_type": "TASK",
+    "article": 15,
+    "text": "Вот у муравьев нет никаких собраний и ничего, все работает как часы",
+    "author": "Энтомолог",
+    "created_at": "2023-03-07T09:36:30.649Z",
+    "updated_at": "2023-03-07T09:36:30.649Z"
+  }
+},
+{
+  "model": "todo.comment",
+  "pk": 11,
+  "fields": {
+    "status": "DONE",
+    "task_type": "BUG",
+    "article": 11,
+    "text": "Я обычный список сделать не могу, а вы мне еще антисписок предлагаете",
+    "author": "Лентяй",
+    "created_at": "2023-03-07T09:37:03.433Z",
+    "updated_at": "2023-03-07T09:37:03.433Z"
+  }
+},
+{
+  "model": "todo.comment",
+  "pk": 12,
+  "fields": {
+    "status": "DONE",
+    "task_type": "TASK",
+    "article": 12,
+    "text": "Многозадачность не самая лучшая затея, ибо внимание рассеивается сильно",
+    "author": "Учитель",
+    "created_at": "2023-03-07T09:37:33.492Z",
+    "updated_at": "2023-03-07T09:37:33.492Z"
+  }
+}
+]
