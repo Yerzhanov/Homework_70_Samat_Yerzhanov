@@ -39,6 +39,11 @@ urlpatterns = [
     path('todo/<int:todo_pk>/complete', completetodo, name='completetodo'),
     path('todo/<int:todo_pk>/delete', deletetodo, name='deletetodo'),
 
+    path('list_project/', ProjectView.as_view(), name='list_project'),
+    path('create_project/', ProjectCreateView.as_view(), name='create_project'),
+    path('view_project/<slug:pk>/', ProjectDetailView.as_view(), name='view_project')
+
+
 ]
 
 

@@ -18,8 +18,12 @@
                         <b>Комментарий к делу - {{ comment.article }}</b> Текст - {{ comment.text }}
                            Автор - {{ comment.author }} Статус - {{ comment.status }} <br>
                            Тип задачи  - {{ comment.task_type }} | Дата создания - {{ comment.created_at }} | Тэги - {{ comment.tags.name }}
+                     <form method="post">
+                    <button type="button" class="btn btn-primary" onclick="$('#delete').click()">Удалить комментарий</button>
+                     </form>
                            <hr>
                 {% endfor %}
+
             </div>
         {% else %}
             <div class="text-center">

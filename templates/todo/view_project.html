@@ -4,7 +4,7 @@
 {% block content %}
     <div class="row justify-content-center mt-5">
         <div class="col-md-5">
-            <h2>Дело</h2>
+            <h2>Проект</h2>
         </div>
     </div>
     <div class="row justify-content-center mt-5">
@@ -15,7 +15,6 @@
                 </div>
             {% endif %}
             <form method="post">
-                {% csrf_token %}
                 <div class="form-group">
                      {% csrf_token %}
                         {{ form.as_p }}
@@ -25,15 +24,14 @@
             </form>
         </div>
     </div>
-    {% if todo.datecompleted is None %}
-        <form style='display: none;' method="POST" action="{% url 'completetodo' todo.id %}">
+    {% if project.datecompleted is None %}
+        <form style='display: none;' method="POST" action="#">
             {% csrf_token %}
             <button id="complete" type="submit">Выполнено</button>
         </form>
     {% endif %}
-    <form style='display: none;' method="POST" action="{% url 'deletetodo' todo.id %}">
+    <form style='display: none;' method="POST" action="#">
         {% csrf_token %}
         <button id="delete" type="submit">Удалить</button>
     </form>
 {% endblock %}
-

@@ -8,6 +8,7 @@ from .models import Ticket
 class CommentListView(ListView):
     model = Ticket
     template_name = 'issue_tracker/list.html'
+    paginate_by = 2
 
 
 class CommentDetailView(DetailView):

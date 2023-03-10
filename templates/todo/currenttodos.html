@@ -4,31 +4,37 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-10">
             {% if todos %}
-                 <h1> Количество дел - {{ todos.count }}</h1>
+                 <h1> Напоминания </h1>
             {% else %}
                            <h1>Текущие дела</h1>
+
             {% endif %}
         </div>
     </div>
+
+    {% include 'partial/simple_search.html' %}
+
     <div class="row justify-content-center mt-5">
         <div class="col-md-10">
         {% if todos %}
             <div class="list-group">
                 {% for todo in object_list %}
-                    <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}">
+                    <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-secondary{% if todo.important %} list-group-item-danger{% endif %}">
                         <b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo }} <br> Начато - {{ todo.date_created }} Статус - {{ todo.status }}{% endif %}</a>
-
+                </a>
                 {% endfor %}
             </div>
         {% else %}
             <div class="text-center">
-                <h2>У вас не пока никаких дел</h2>
+                <h2>Задачи не найдены. Хотите создать новое напоминание?</h2>
             <br>
             <a role="button" class="btn btn-primary" href="{% url 'createtodo' %}">Новое дело</a>
             </div>
         {% endif %}
-         <a href="{% url 'viewcomment' %}">Посмотреть комментарии к делам</a>
         </div>
+    {% if is_paginated %}
+   {% include 'partial/pagination.html' %}
+    {% endif %}
     </div>
 {% endblock %}
 

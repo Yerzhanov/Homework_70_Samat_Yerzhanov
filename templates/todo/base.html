@@ -29,7 +29,7 @@
         <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item {{ current }}">
-                    <a class="nav-link" href="{% url 'currenttodos' %}">Напоминание</a>
+                    <a class="nav-link" href="{% url 'currenttodos' %}">Напоминания</a>
                 </li>
                 <li class="nav-item {{ completed }}">
                     <a class="nav-link" href="{% url 'completedtodos' %}">Выполненные</a>
@@ -40,8 +40,14 @@
                 <li class="nav-item {{ create }}">
                     <a class="nav-link" href="{% url 'createcomment' %}">Комментировать</a>
                 </li>
+                 <li class="nav-item {{ current }}">
+                    <a class="nav-link" href="{% url 'viewcomment' %}">Комментарии к делам</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'list' %}">Тикеты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'list_project' %}">Проекты</a>
                 </li>
 
 

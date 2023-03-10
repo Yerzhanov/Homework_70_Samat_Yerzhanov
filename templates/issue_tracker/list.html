@@ -21,6 +21,9 @@
             <ul colspan=4>У вас нет тикетов</ul>
         </ul>
         {% endfor %}
+         {% if is_paginated %}
+   {% include 'partial/pagination.html' %}
+    {% endif %}
         </body>
 </div>
 {% endblock %}
