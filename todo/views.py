@@ -1,14 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import IntegrityError
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.urls import reverse
 from django.utils.http import urlencode
 from django.views.generic import CreateView, DetailView
 
-from .forms import TodoForm, CommentForm, SimpleSearchForm, ProjectForm
+from .forms import TodoForm, CommentForm, SimpleSearchForm, ProjectForm, MyUserCreationForm
 from .models import Todolist, Comment, Projectlist
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
@@ -27,7 +28,8 @@ def signupuser(request):
     else:
         if request.POST['password1'] == request.POST['password2']:
             try:
-                user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
+                user = User.objects.create_user(
+                    request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
                 return redirect('currenttodos')
@@ -35,6 +37,25 @@ def signupuser(request):
                 return render(request, 'todo/signupuser.html', {'form': UserCreationForm(), 'error': 'Такой пользователь уже существует. Задайте новое имя.'})
         else:
             return render(request, 'todo/signupuser.html', {'form': UserCreationForm(), 'error': 'Пароль не совпадает'})
+
+class RegisterView(CreateView):
+    model = User
+    template_name = 'todo/user_create.html'
+    form_class = MyUserCreationForm
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect(self.get_success_url())
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        if not next_url:
+            next_url = self.request.POST.get('next')
+        if not next_url:
+            next_url = reverse('index')
+        return next_url
+
 
 def loginuser(request):
     if request.method == 'GET':
@@ -215,7 +236,7 @@ class ProjectDetailView(DetailView):
     template_name = 'todo/view_project.html'
     model = Projectlist
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'todo/createproject.html'
     model = Projectlist
     form_class = ProjectForm
