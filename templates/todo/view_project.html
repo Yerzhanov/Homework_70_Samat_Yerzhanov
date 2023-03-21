@@ -17,10 +17,15 @@
             <form method="post">
                 <div class="form-group">
                      {% csrf_token %}
-                        {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Редактировать</button>
-                <button type="button" class="btn btn-success" onclick="$('#complete').click()">Выполнено</button>
-                <button type="button" class="btn btn-danger" onclick="$('#delete').click()">Удалить</button>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#">{{ projectlist.name }}</a>
+                            </h4>
+                            <h5>{{ projectlist.description }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                        <a href="{% url 'list_project' %}">Вернуться</a>
+                        </div>
+                    </div>
             </form>
         </div>
     </div>
