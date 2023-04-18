@@ -17,6 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from todo.views import *
 from issue_tracker.views import CommentListView, CommentDetailView, CommentCreateView
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('todo', TodoViewSet)
+
+project = routers.DefaultRouter()
+project.register('projects', ProjectViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +34,7 @@ urlpatterns = [
     path('signup/', signupuser, name='signupuser'),
     path('login/', loginuser, name='loginuser'),
     path('logout/', logoutuser, name='logoutuser'),
+    path('create_user/', RegisterView.as_view(), name='create_user'),
 
     path('', HomeView.as_view(), name='home'),
     path('current/', CurrentView.as_view(), name='currenttodos'),
@@ -41,8 +49,10 @@ urlpatterns = [
 
     path('list_project/', ProjectView.as_view(), name='list_project'),
     path('create_project/', ProjectCreateView.as_view(), name='create_project'),
-    path('view_project/<slug:pk>/', ProjectDetailView.as_view(), name='view_project')
+    path('view_project/<slug:pk>/', ProjectDetailView.as_view(), name='view_project'),
 
+    path('', include(router.urls)),
+    path('', include(project.urls)),
 
 ]
 
